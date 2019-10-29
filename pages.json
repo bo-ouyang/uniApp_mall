@@ -1,0 +1,145 @@
+{
+    "pages" : [
+        //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+        {
+            "path" : "pages/index/index",
+            "style" : {
+                "app-plus" : {
+                    "titleNView" : false
+                }
+            }
+        },
+        {
+            "path" : "pages/task/task",
+            "style" : {
+                "navigationBarTitleText" : "我的任务"
+            }
+        },
+		{
+		    "path" : "pages/task/order_process",
+		    "style" : {
+		        "navigationBarTitleText" : "下单流程"
+		    }
+		},
+		{
+		    "path" : "pages/task/order_review",
+		    "style" : {
+		        "navigationBarTitleText" : "下单流程"
+		    }
+		},
+        {
+            "path" : "pages/share/share",
+            "style" : {
+                "navigationBarTitleText" : "分享"
+            }
+        },
+        {
+            "path" : "pages/login/login",
+            "style" : {
+                "navigationBarTitleText" : "登录"
+            }
+        },
+        {
+            "path" : "pages/reg/reg",
+            "style" : {
+                "navigationBarTitleText" : "注册"
+            }
+        },
+        {
+            "path" : "pages/pwd/pwd",
+            "style" : {
+                "navigationBarTitleText" : "找回密码"
+            }
+        },
+        {
+            "path" : "pages/user/user",
+            "style" : {
+                "navigationBarTitleText" : "我的"
+            }
+        },
+        {
+            "path" : "pages/item/item",
+            "style" : {}
+        },
+        {
+            "path" : "pages/info/info",
+            "style" : {
+				
+                "app-plus" : {
+                    "titleNView" : false
+                }
+            }
+        },
+        
+        {
+            "path" : "pages/test/test",
+            "style" : {
+				"app-plus" : {
+				    "titleNView" : false
+				}
+			}
+        }
+        ,{
+            "path" : "pages/bindAccount/bindAccount_select",
+            "style" : {}
+        }
+		,{
+		    "path" : "pages/bindAccount/bindAccount",
+		    "style" : {}
+		}
+        ,{
+            "path" : "pages/accountList/accountList",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/setting/setting",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/security/security",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/task_detail/task_detail",
+            "style" : {}
+        }
+    ],
+    "globalStyle" : {
+        "navigationBarTextStyle" : "black",
+        "navigationBarTitleText" : "uni-app",
+        "navigationBarBackgroundColor" : "#F8F8F8",
+        "backgroundColor" : "#F8F8F8"
+    },
+    "tabBar" : {
+        "color" : "#7A7E83",
+        "selectedColor" : "#fea305",
+        "borderStyle" : "black",
+        "backgroundColor" : "#F8F8F8",
+        "list" : [
+            {
+                "pagePath" : "pages/index/index",
+                "iconPath" : "static/shouye2.png",
+                "selectedIconPath" : "static/shouye.png",
+                "text" : "首页"
+            },
+            {
+                "pagePath" : "pages/share/share",
+                "iconPath" : "static/fengxiang2.png",
+                "selectedIconPath" : "static/fengxiang.png",
+                "text" : "分享赚钱"
+            },
+            {
+                "pagePath" : "pages/task/task",
+                "iconPath" : "static/renw.png",
+                "selectedIconPath" : "static/rengwu.png",
+                "text" : "我的任务"
+            },
+            {
+                "pagePath" : "pages/user/user",
+                "text" : "我的",
+                "iconPath" : "static/img/user.png",
+                "selectedIconPath" : "static/img/userHL.png"
+            }
+        ]
+    }
+}

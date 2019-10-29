@@ -1,0 +1,10 @@
+<import src="/components/uni-nav-bar.vue.wxml" />
+<import src="/components/uni-icon.vue.wxml" />
+<import src="/components/uni-load-more.vue.wxml" />
+<import src="/components/uni-status-bar.vue.wxml" />
+<import src="/common/slots.wxml" />
+
+<template name="b6e08c1c-default-b6e08c1c-2"><view class="_view b6e08c1c input-view"><template type="search" size="22" color="#666666" data="{{...$root['0'], ...$root[$kk+'b6e08c1c-1'],$root}}" is="42f32312"></template><input confirm-type="search" bindconfirm="handleProxy" class="_input b6e08c1c input" type="text" placeholder="输入搜索关键词" data-eventid="{{'b6e08c1c-0'}}" data-comkey="{{$k}}" /></view></template>
+
+<template name="b6e08c1c-left-b6e08c1c-2"><view class="_view b6e08c1c city"><template type="home" color="#333333" size="26" data="{{...$root['0'], ...$root[$kk+'b6e08c1c-0'],$root}}" is="42f32312"></template></view></template>
+
