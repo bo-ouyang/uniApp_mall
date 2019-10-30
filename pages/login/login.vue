@@ -20,30 +20,28 @@
 			</view>
 		</view>
 		<!-- 第三方登录 -->
-		<view class="oauth" v-if="isShowOauth">
+		<view class="oauth" >
 			<view class="text">— 快速登录 —</view>
 			<view class="list">
 				<view @tap="oauthLogin('weixin')" v-if="showProvider.weixin" class="icon weixin"></view>
 				<view @tap="oauthLogin('qq')" v-if="showProvider.qq" class="icon qq"></view>
-				<view @tap="oauthLogin('sinaweibo')" v-if="showProvider.sinaweibo" class="icon sinaweibo"></view>
-				<!-- <view @tap="oauthLogin('xiaomi')" v-if="showProvider.xiaomi" class="icon xiaomi"></view> -->
 			</view>
 		</view>
 	</view>
 </template>
 
 <script>
+	import {mapMatation} from 'vuex'
 	export default {
 		data() {
 			return {
 				phoneNumber: '',
 				passwd:'',
-				isShowOauth:false,
+				isShowOauth:true,
 				showProvider:{
-					weixin:false,
-					qq:false,
-					sinaweibo:false,
-					xiaomi:false
+					weixin:true,
+					qq:true,
+				
 				}
 			}
 		},
@@ -122,45 +120,38 @@
 			doLogin(){
 				uni.hideKeyboard();
 				//验证手机号码
-				if(!(/^1(3|4|5|6|7|8|9)\d{9}$/.test(this.phoneNumber))){ 
+				/* if(!(/^1(3|4|5|6|7|8|9)\d{9}$/.test(this.phoneNumber))){ 
 					uni.showToast({title: '请填写正确手机号码',icon:"none"});
 					return false; 
-				}
+				} */
 				
 				uni.showLoading({
 					title: '提交中...'
 				})
 				var form = {user:this.phoneNumber,'pass':this.passwd,'dev':'web'}
 				this.$api.login(form).then((res)=>{
-					
-				}).catch()
-				//模板示例比对本地储存的用户信息，实际使用中请替换为上传服务器比对。
-				setTimeout(()=>{
-					let md5PW = md5(this.passwd)
-					uni.getStorage({
-						key: 'UserList',
-						success: (res)=>{
-							for(let i in res.data){
-								let row = res.data[i];
-								if(row.username==this.phoneNumber){
-									uni.hideLoading()
-									//比对密码
-									if(md5PW == res.data[i].passwd){
-										uni.showToast({title: '登录成功',icon:"success"});
-									}else{
-										uni.showToast({title: '账号或密码不正确',icon:"none"});
-									}
-								}
+					res = res.data
+					console.log(res)
+					if(res.code==10000){
+						this.login(res)
+						uni.showToast({
+							title:res.msg,
+							duration:1500,
+							success:function(){
+								history.go(-1)
 							}
-						},
-						fail:function(e){
-							uni.hideLoading()
-							uni.showToast({title: '手机号码未注册',icon:"none"});
-						}
-					});
-				},1000)
+						})
+					}else{
+						uni.showToast({
+							title:res.msg,
+							duration:1500
+						})
+					}
+				}).catch()
+			
 			}
-		}
+		},
+		 ...mapMutations(['login'])
 	}
 </script>
 

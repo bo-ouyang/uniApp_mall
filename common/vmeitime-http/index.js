@@ -50,7 +50,7 @@ export const home = (data) => {
 export const login = (data)=>{
 	return http.request({
 	    url: '/login',
-	    method: 'GET', 
+	    method: 'POST', 
 	    data,
 		// handle:true
 	})
@@ -59,5 +59,6 @@ export const login = (data)=>{
 export default {
 	test,
     banner,
-	home
+	home,
+	login
 }

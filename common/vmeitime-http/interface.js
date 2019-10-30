@@ -34,9 +34,9 @@ export default {
 	config: {
 		baseUrl: "http://lar.cn/api/mall/v1",
 		header: {
-			'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8',
-			'Access-Control-Allow-Origin':'*',
-			
+			'Content-Type':'application/json;charset=utf-8',
+			'Access-Control-Allow-Origin':'http://www.lar.cn',
+			'Access-Control-Allow-Credentials':'true'
 		},  
 		data: {},
 		method: "GET",
