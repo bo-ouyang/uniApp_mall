@@ -2,30 +2,19 @@
 	import {
 		mapMutations
 	} from 'vuex';
-	
 	export default {
 		onLaunch: function () {
 			uni.getStorage({
 				key: 'userInfo',
 				success:(res) => {
-					this.login(res.data);
+					this.setlogin(res.data);
 					
+					var res = res.data
 					// 如果还需要重新校验或是想要刷新token的有效时间 就再联网请求一次
-					uni.request({
-						url: `${this.$serverUrl}/index/auth`,
-						header: {
-							"Content-Type": "application/x-www-form-urlencoded",
-							"token":res.data.token
-						},
-						data: {
-							"username":res.data.username
-						},
-						method: "POST",
-						success: (e) => {
-							if (e.statusCode === 200 && e.data.code === 0) {
-								this.login(e.data);
-							}
-						}
+					this.$api.auth({user:res.data.username}).then((ret)=>{
+							this.setlogin(ret.data);
+					}).catch((err)=>{
+						
 					})
 				},
 				fail: (res) => {
@@ -35,7 +24,7 @@
 		
 		},
 		methods: {
-			...mapMutations(['login'])
+			...mapMutations(['setlogin'])
 		}
 	}
 </script>

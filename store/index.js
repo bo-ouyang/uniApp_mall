@@ -9,7 +9,7 @@ const store = new Vuex.Store({
 		hasLogin: false
 	},
 	mutations: {
-		login(state, provider) {
+		setlogin(state, provider) {
 			state.hasLogin = true
 			state.userInfo.token = provider.token
 			state.userInfo.username = provider.username

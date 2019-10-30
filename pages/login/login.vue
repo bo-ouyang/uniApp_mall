@@ -31,7 +31,9 @@
 </template>
 
 <script>
-	import {mapMatation} from 'vuex'
+	import {
+	        mapMutations
+	    } from 'vuex';
 	export default {
 		data() {
 			return {
@@ -133,12 +135,12 @@
 					res = res.data
 					console.log(res)
 					if(res.code==10000){
-						this.login(res)
+						this.setlogin(res)
 						uni.showToast({
-							title:res.msg,
+							title:'登录成功',
 							duration:1500,
 							success:function(){
-								history.go(-1)
+						history.go(-1)
 							}
 						})
 					}else{
@@ -149,9 +151,10 @@
 					}
 				}).catch()
 			
-			}
+			},
+			...mapMutations(['setlogin'])
 		},
-		 ...mapMutations(['login'])
+		 
 	}
 </script>
 

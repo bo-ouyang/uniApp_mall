@@ -6,7 +6,7 @@ Vue.config.productionTip = false
 
 App.mpType = 'app'
 
-Vue.prototype.$serverUrl = 'http://t2.qingxinedu.cn/api'
+
 Vue.prototype.$store = store
 Vue.prototype.$api = api
 const app = new Vue({

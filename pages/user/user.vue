@@ -88,7 +88,7 @@
 							}
 						})
 					}else{
-						uni.reLaunch({
+						uni.navigateTo({
 							url:"../login/login"
 						})
 					}

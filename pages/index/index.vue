@@ -89,7 +89,7 @@
 									<image class="uni-product-image" :src="newsitem.goods_image" ></image>
 								</view>
 							</navigator>
-							<view class="uni-product-title">{{newsitem.goods_name}}</view>
+							<view class="uni-product-title" style="height: 42upx;">{{newsitem.goods_name}}</view>
 							<view class="uni-product-des">
 								<text v-if="newsitem.scid===1" class="test taobao">&#xe607;</text>
 								<text v-if="newsitem.scid===2" class="test jingdong">&#xe607;</text>
@@ -206,6 +206,14 @@
 		
 		onLoad() {
 			//console.log(this.$api)
+			uni.getStorage({
+				key:"userInfo",
+				success:function(res){
+					var token = res.data.data.token
+					console.log(token)
+				}
+			})
+			console.log(this.hasLogin)
 			this.$api.home({}).then((res)=>{
 				console.log(res)
 				res = res.data

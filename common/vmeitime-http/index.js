@@ -55,10 +55,19 @@ export const login = (data)=>{
 		// handle:true
 	})
 }
+export const auth = (data)=>{
+	return http.request({
+	    url: '/auth',
+	    method: 'POST', 
+	    data,
+		// handle:true
+	})
+}
 // 默认全部导出  import api from '@/common/vmeitime-http/'
 export default {
 	test,
     banner,
 	home,
-	login
+	login,
+	auth
 }
